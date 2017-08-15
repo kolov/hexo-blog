@@ -78,6 +78,6 @@ theme: cactus-light
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:kolov/hexo-blog.git
+  repo: git@github.com:kolov/kolov.github.io.git
   branch: master
 
