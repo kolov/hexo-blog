@@ -1,0 +1,7 @@
+.deploy_git
+*.iml
+yarn.lock
+.idea
+public
+node_modules
+
