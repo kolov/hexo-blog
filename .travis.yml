@@ -3,7 +3,8 @@ node_js:
 - 6.0.0
 branches:
   only:
-  - source
+  - master
+  
 
 install: npm install
 
