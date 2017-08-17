@@ -7,12 +7,12 @@ tags: aws, kubernetes, circleci, Continuous Delivery
 For a developer, Kubernetes is a dream target platform. Commands are simple and powerful, making deployment tasks easy and transparent. This is especially valuable in the microservices world, where deployment is something developers have to work with on a daily basis and understand in detail.
 Setting up a Kubernetes cluster is a different story, or at least used to be. Kubernetes runs on many platforms, but setting it up is not equally simple. Until recently, any other platform than Google Container Engine required too much operational effort to set up and maintain.
 
-Some time ago I had set up a small cluster on Google Container Engine  (GKE) and a delivery pipeline with CircleCI. This weekend, I decided to check out how difficult it would be to move this to AWS, and I was surprised how smoothly it went. Starting from a scratch, it should be possible to set up
-the cluster and a delivery pipeline to it within a few hours. This blog documents the process in big lines.
+Some time ago I had set up a small cluster on Google Container Engine  (GKE) and a delivery pipeline with CircleCI. 
+This weekend, I decided to check out how difficult it would be to move this to AWS, and I was surprised how smoothly it went. Starting from a scratch, it should be possible to set up the cluster and a delivery pipeline to it within a few hours. This blog documents the process in big lines.
 
 ## The Goal
 
-Starting only with a project building a docker image, we will create the kubernetes cluster and set up a delivery pipeline that builds and deploys it the cluster on every change.
+Starting with any project that produces a docker image, we will create the kubernetes cluster and set up a delivery pipeline that builds and deploys it the cluster on every change.
 
 ## Kubernetes on AWS
 First, create the cluster. [Kops](https://github.com/kubernetes/kops) has made that really simple.
@@ -28,12 +28,12 @@ These commands are more of an example to show how simple it is to create a clust
 follow the official instructions. `kops` sets up the cluster and configures `kubectl` with credentials to access it.
 
 ## Container Registry
-As we are going to build an deploy containers, we need a container registry. If you already have one somewhere - great. Setting up one on AWS is pretty straightforward - go to `EC2 Container Service` and create a registry. We need credentials for the build process to push images to it -
-create a IAM user with `arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser` policy. Note its Access Key ID and Secret Key for later use.
+As we are going to build an deploy containers, we need a container registry. If you already have one somewhere - 
+great. Setting up one on AWS is pretty straightforward - go to `EC2 Container Service` and create a registry. We need credentials for the build process to push images to it - create a IAM user with `AmazonEC2ContainerRegistryPowerUser` policy. Note its Access Key ID and Secret Key for later use.
 
 ## The project
 
-We start with a project that already has a `Dockerfile`, but next to it we need two more files: `k8s-deployment.yml` to create a [kubernetes deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), and `k8s-service.yml` for the [service](https://kubernetes.io/docs/concepts/services-networking/service/). Both files contain a fe
+We start with a project that already has a `Dockerfile`, but next to it we need two more files: `k8s-deployment.yml` to create a [kubernetes deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), and `k8s-service.yml` for the [service](https://kubernetes.io/docs/concepts/services-networking/service/). 
 
 A typical `k8s-deployment.yml`. It contains a few placeholders:
 
