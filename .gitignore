@@ -4,4 +4,4 @@ yarn.lock
 .idea
 public
 node_modules
-
+db.json

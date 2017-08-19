@@ -27,7 +27,7 @@ kops create cluster --zones eu-central-1a  kolov-k8s1.k8s.local
 {% endcodeblock %}
 
 These commands are more of an example to show how simple it is to create a cluster with `kops`, for the details
-follow the official instructions. `kops` sets up the cluster and configures `kubectl` with credentials to access it.
+follow the official [tutorial](https://github.com/kubernetes/kops/blob/master/docs/aws.md). `kops` sets up the cluster and configures `kubectl` with credentials to access it.
 
 ## Container Registry
 As we are going to build an deploy containers, we need a container registry. If you already have one somewhere -
